@@ -1,0 +1,18 @@
+.data
+	N:	.word 	15
+	Array:	.word	13578, 945730, 34, -85873, 0, -843909, 777, 11111111, 98, 99, 75, 40, 86, -5, -1000000
+	Large:	.word	0
+
+.text
+	lui 	$at, 0x00001001
+	ori	$a0, 0x00000004
+	lui	$at, 0x00001001
+	lw	$a1, 0x00000000($at)
+	slt	$at, $v0, $t3
+	beq	$at, $0, over
+	lui	$at, 0x00001001
+	addu 	$at, $at, $a0
+	sw	$v0, 0x00000040($at)
+	addiu	$v0, $0, 0x0000000A
+over:
+	addu	$v0, $0, $t3
